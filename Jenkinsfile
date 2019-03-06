@@ -3,7 +3,7 @@ pipeline {
   registry = 'venkat/microservices-node-todo-frontend'
   registryCredential = 'dockerhub'
   dockerImage = ''
-  //containerId = sh(script: 'docker ps -aqf "name=node-app", returnStdout:true')
+   //containerId = sh(script: 'docker ps -aqf "name=node-app", returnStdout:true')
   }
   agent any
   tools {
@@ -30,6 +30,18 @@ pipeline {
       dockerImage = docker.build registry + ":$BUILD_NUMBER"
      }
     }
+   }
+   stage('Run Container'){
+    steps{
+     sh 'docker run --name=node-app -d -p 3000:3000 $registry:$BUILD_NUMBER &'
+   }
+   }
+   stage('push image'){
+    steps{
+     script{
+      docker.withRegistry('',registryCredential){
+       dockerImage.push()
+      }
    }
   }
 }
