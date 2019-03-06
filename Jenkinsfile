@@ -10,7 +10,7 @@ pipeline {
    noodjs "node"
   }
 
-  Stages {
+  stages {
    stage('Cloning project') {
     git 'https://github.com/gustavoapolinario/node-todo-frontend'
    }
