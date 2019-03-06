@@ -35,6 +35,7 @@ pipeline {
    steps{
     sh 'docker stop node-app'
     sh 'docker rm node-app'
+    sh 'docker rmi -f $registry'
    }
   }
   stage('Run Container') {
