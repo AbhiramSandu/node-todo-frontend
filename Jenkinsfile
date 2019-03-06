@@ -30,6 +30,11 @@ pipeline {
      dockerImage = docker.build registry + ":$BUILD_NUMBER"
     }
    }
+  }stage('cleanup'){
+   steps{
+   sh 'docker stop node-app'
+    sh 'docker rm node-app'
+   }
   }
   stage('Run Container') {
    steps {
