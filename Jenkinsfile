@@ -1,6 +1,6 @@
 pipeline {
  environment {
-  registry = 'venkat/microservices-node-todo-frontend'
+  registry = 'venkatadri/microservices-node-todo-frontend'
   registryCredential = 'dockerhub'
   dockerImage = ''
  containerId = sh(script: 'docker ps -aqf "name=node-app"', returnStdout:true)
