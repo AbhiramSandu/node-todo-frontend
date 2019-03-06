@@ -11,9 +11,9 @@ pipeline {
   }
 
   stages {
-   stage('Cloning project') {
+   /*stage('Cloning project') {
     git 'https://github.com/gustavoapolinario/node-todo-frontend'
-   }
+   }*/
    stage('Build') {
     sh 'npm install'
    }
