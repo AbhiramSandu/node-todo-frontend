@@ -15,10 +15,14 @@ pipeline {
     git 'https://github.com/gustavoapolinario/node-todo-frontend'
    }*/
    stage('Build') {
+     stpes {
     sh 'npm install'
+     }
    }
    stage('Test') {
+     stpes {
     sh 'npm test'
+     }
    }
    stage('Building image') {
     stpes {
