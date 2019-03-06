@@ -3,7 +3,7 @@ pipeline {
   registry = 'venkat/microservices-node-todo-frontend'
   registryCredential = 'dockerhub'
   dockerImage = ''
-  //containerId = sh(script: 'docker ps -aqf "name=node-app", returnStdout:true')
+ containerId = sh(script: 'docker ps -aqf "name=node-app", returnStdout:true')
  }
  agent any
  tools {
