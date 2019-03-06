@@ -15,17 +15,17 @@ pipeline {
     git 'https://github.com/gustavoapolinario/node-todo-frontend'
    }*/
    stage('Build') {
-     stpes {
+     steps {
     sh 'npm install'
      }
    }
    stage('Test') {
-     stpes {
+     steps {
     sh 'npm test'
      }
    }
    stage('Building image') {
-    stpes {
+    steps {
      script {
       dockerImage = docker.build registry + ":$BUILD_NUMBER"
      }
